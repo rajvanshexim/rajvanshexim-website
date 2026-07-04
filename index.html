@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rajvansh Exim Corp. | ISO 9001:2015 Certified Control Cables</title>
-    <!-- Font Awesome for clean industrial icons -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     
     <style>
         :root {
@@ -14,30 +13,25 @@
             --dark-bg: #111111;
             --card-bg: #222222;
             --light-grey: #f5f5f5;
-            --text-dark: #333333;
-            --text-muted: #666666;
-            --transition-speed: 0.3s;
+            --text-muted: #aaaaaa;
+            --transition-speed: 0.4s;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-shadow: border-box;
-            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: #ffffff;
-            color: var(--text-dark);
+            color: #333333;
             overflow-x: hidden;
         }
 
-        /* Responsive Utility Classes */
-        .text-red { color: var(--primary-red); }
-        .hidden { display: none !important; }
-
-        /* --- Introduction Video Loader Section --- */
+        /* 1. Introduction Video Loading Overlay */
         #intro-loader {
             position: fixed;
             top: 0;
@@ -49,6 +43,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: opacity 0.5s ease;
         }
 
         #intro-loader video {
@@ -57,37 +52,51 @@
             object-fit: cover;
         }
 
-        /* --- Main Layout Headers --- */
+        /* 2. Top Utility & Layout Navigation Bar */
         .top-bar {
-            background: #000;
-            color: #fff;
-            padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        header {
-            background: #fff;
-            padding: 15px 5%;
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            padding: 10px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+            border-bottom: 1px solid #222;
+        }
+
+        .top-bar a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .top-bar a:hover {
+            color: var(--primary-red);
+        }
+
+        .text-red {
+            color: var(--primary-red);
+        }
+
+        header {
+            background: #ffffff;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 15px;
-            cursor: pointer;
+            gap: 12px;
         }
 
+        /* Main Nav Logo: Name of organization is additionally written inside the image */
         .site-logo {
             height: 50px;
             width: auto;
@@ -95,9 +104,10 @@
         }
 
         .brand-name {
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.4rem;
             letter-spacing: 1px;
+            color: var(--dark-bg);
         }
 
         nav {
@@ -108,10 +118,9 @@
 
         nav a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: #333;
             font-weight: 600;
-            transition: var(--transition-speed);
-            cursor: pointer;
+            transition: color var(--transition-speed);
         }
 
         nav a:hover {
@@ -125,208 +134,149 @@
             border-radius: 4px;
         }
 
-        .btn-nav:hover {
-            background: #b71c1c;
+        /* 3. Section Transitions & Scroll Animations */
+        section {
+            padding: 80px 10%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        /* --- Mobile Navigation Trigger --- */
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
+        section.reveal {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* --- Main Application Section Multi-Page Views --- */
-        .app-page {
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- Hero Showcase Section --- */
+        /* Hero Setup Overlay */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
-            padding: 120px 10%;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('assets/hero-bg-cable.jpg') no-repeat center center/cover;
+            height: 85vh;
+            display: flex;
+            align-items: center;
             color: white;
-            text-align: left;
+            padding: 0 10%;
         }
 
-        .hero-content {
-            max-width: 700px;
+        .hero-content h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin: 15px 0;
         }
 
         .badge {
             background: var(--primary-red);
             padding: 5px 12px;
             font-size: 0.8rem;
-            font-weight: bold;
+            font-weight: 700;
             border-radius: 3px;
             letter-spacing: 1px;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin: 20px 0;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #ddd;
-        }
-
         .hero-buttons {
+            margin-top: 30px;
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
         }
 
         .btn-primary, .btn-secondary {
-            padding: 12px 30px;
+            padding: 12px 28px;
+            font-weight: 700;
             text-decoration: none;
-            font-weight: bold;
             border-radius: 4px;
-            transition: var(--transition-speed);
-            cursor: pointer;
-            display: inline-block;
+            transition: transform 0.2s, background 0.3s;
         }
 
         .btn-primary { background: var(--primary-red); color: white; }
-        .btn-primary:hover { background: #b71c1c; }
-        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
-        .btn-secondary:hover { background: white; color: black; }
+        .btn-primary:hover { background: #b71c1c; transform: translateY(-2px); }
+        .btn-secondary { background: white; color: var(--dark-bg); }
+        .btn-secondary:hover { background: #e0e0e0; transform: translateY(-2px); }
 
-        /* --- Stat Bar --- */
+        /* Highlights Dashboard */
         .highlights-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
             padding: 40px 10%;
-            background: #f9f9f9;
-            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            background: var(--light-grey);
         }
 
         .stat-card {
             background: white;
             padding: 30px;
             border-radius: 6px;
+            text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
         }
 
-        .stat-card i {
-            font-size: 2.5rem;
-            color: var(--primary-red);
-            margin-bottom: 15px;
-        }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-card i { font-size: 2.5rem; color: var(--primary-red); margin-bottom: 15px; }
 
-        /* --- Universal Section Grid Styles --- */
-        .section-padding {
-            padding: 60px 10%;
-        }
-
+        /* Responsive Grids */
         .grid-2 {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            align-items: center;
         }
 
-        .catalog-container, .matrix-container {
+        .catalog-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            margin-top: 40px;
         }
 
-        .catalog-card {
-            background: white;
-            padding: 25px;
-            border-radius: 4px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .matrix-card {
-            text-align: center;
-            padding: 30px;
-            background: var(--light-grey);
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            transition: var(--transition-speed);
-        }
-
-        .matrix-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* --- Quality & Testing Flex Frame --- */
-        .quality-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 35px;
-        }
-
-        .quality-card {
-            background: white;
-            padding: 20px;
-            border-radius: 4px;
-            width: 280px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* --- Contact Us Section Layout --- */
-        .contact-wrapper {
-            background: #111;
+        /* Form & Contact Styling */
+        .contact-section {
+            background: var(--dark-bg);
             color: white;
         }
 
-        .contact-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: space-between;
+        /* Decorative Footer Logo Container (Where name is NOT written dynamically onto image) */
+        .footer-logo-wrapper {
+            margin-bottom: 20px;
+            display: block;
+        }
+        .footer-logo {
+            height: 65px;
+            width: auto;
+            object-fit: contain;
         }
 
-        .contact-info, .contact-form-container {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .contact-form-container {
-            background: #222;
-            padding: 30px;
+        .form-box {
+            background: var(--card-bg);
+            padding: 40px;
             border-radius: 6px;
+            position: relative;
         }
 
-        .contact-form-container input, .contact-form-container textarea {
+        .form-box input, .form-box textarea {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             margin-bottom: 15px;
-            border: none;
-            background: #333;
+            border: 1px solid #333;
+            background: #2b2b2b;
             color: white;
             border-radius: 4px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-box input:focus, .form-box textarea:focus {
+            border-color: var(--primary-red);
         }
 
         .btn-submit {
             background: var(--primary-red);
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 14px;
             width: 100%;
             font-weight: bold;
+            font-size: 1rem;
             cursor: pointer;
             border-radius: 4px;
-            transition: 0.3s;
+            transition: background var(--transition-speed);
         }
 
         .btn-submit:hover { background: #b71c1c; }
@@ -335,402 +285,372 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: #444;
+            background: #333333;
             color: white;
             padding: 12px 24px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
             border-radius: 4px;
-            margin-top: 25px;
-            transition: var(--transition-speed);
+            margin-top: 20px;
+            border: 1px solid var(--primary-red);
+            transition: background 0.3s, transform 0.3s;
         }
 
         .btn-brochure:hover {
             background: var(--primary-red);
+            transform: translateY(-2px);
         }
 
-        /* --- Thank You Component Matrix --- */
-        .thank-you-view {
-            text-align: center;
-            padding: 100px 10%;
-            background: var(--light-grey);
-            min-height: 60vh;
+        /* 4. Automated Thank You Redirection Overlay Screen */
+        #thank-you-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(17, 17, 17, 0.98);
+            z-index: 10000;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
         }
 
-        .thank-you-view i {
+        #thank-you-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .thank-you-box {
+            background: #222;
+            padding: 50px;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary-red);
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .thank-you-box i {
             font-size: 4rem;
             color: #4BB543;
             margin-bottom: 20px;
         }
 
-        .thank-you-view h2 { margin-bottom: 15px; }
-        .thank-you-view p { color: var(--text-muted); margin-bottom: 30px; }
-
-        /* --- Device Orientation Autolayout Media Queries --- */
-        @media (max-width: 992px) {
-            .grid-2 { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.3rem; }
+        .thank-you-box h2 { margin-bottom: 15px; }
+        .thank-you-box p { color: var(--text-muted); margin-bottom: 25px; }
+        
+        .countdown-text {
+            font-size: 0.85rem;
+            color: var(--primary-red);
+            margin-top: 15px;
+            font-style: italic;
         }
 
+        /* Responsive Media Adjustments */
         @media (max-width: 768px) {
-            header { padding: 15px 5%; }
-            nav {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: white;
-                padding: 20px 5%;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-                gap: 15px;
-                align-items: flex-start;
-            }
-            nav.active { display: flex; }
-            .menu-toggle { display: block; }
-            .top-bar { justify-content: center; text-align: center; }
+            header { flex-direction: column; gap: 15px; padding: 15px 5%; }
+            nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .hero-content h1 { font-size: 2.2rem; }
+            section { padding: 60px 5%; }
+            .top-bar { flex-direction: column; gap: 8px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- [Flowchart Node: Introduction VIDEO AS LOADING] -->
+    <!-- 1. INTRODUCTORY LOADING OVERLAY SCREEN (Flowchart Entry Element) -->
     <div id="intro-loader">
-        <!-- Replaced with user's provided direct video stream container -->
-        <video id="loading-video" autoplay muted playsinline>
-            <source src="https://docs.google.com/uc?export=download&id=1uVHDaAwGdmIugNmYYC1EWS8_uxi4Cmr1" type="video/mp4">
+        <!-- Plays automatically without player chrome, muted for browser autoplay policies -->
+        <video id="autoplay-video" autoplay muted playsinline>
+            <source src="https://drive.google.com/uc?export=download&id=1uVHDaAwGdmIugNmYYC1EWS8_uxi4Cmr1" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 
-    <!-- Top Utility Elements -->
+    <!-- Top Utility Bar (Redirects cleanly to system mailer client on address click) -->
     <div class="top-bar">
         <div><i class="fa-solid fa-certificate text-red"></i> ISO 9001:2015 Certified Company</div>
-        <div><i class="fa-solid fa-envelope"></i> info@rajvanshexim.co.in</div>
+        <div>
+            <i class="fa-solid fa-envelope text-red"></i> 
+            <a href="mailto:info@rajvanshexim.co.in">info@rajvanshexim.co.in</a>
+        </div>
     </div>
 
-    <!-- Persistent Global Navigation Header Grid -->
+    <!-- Navigation Header -->
     <header>
-        <div class="logo-area" onclick="navigateTo('home-view')">
-            <!-- Improvised: Loaded transparent corporate variant per specification -->
-            <img src="https://docs.google.com/uc?export=download&id=1CT-DJD5qg_M1GwCBvXQEbIv9u2hDi3Mo" alt="Rajvansh Exim Corp Logo" class="site-logo">
+        <div class="logo-area">
+            <!-- PNG Logo Option A: Organization Name is written dynamically/additionally inside image -->
+            <img src="https://drive.google.com/uc?export=download&id=1uVHDaAwGdmIugNmYYC1EWS8_uxi4Cmr1" alt="Rajvansh Exim Corp Logo Assembly" class="site-logo">
             <span class="brand-name">RAJVANSH <span class="text-red">EXIM CORP.</span></span>
         </div>
-        <i class="fa-solid fa-bars menu-toggle" onclick="toggleMobileMenu()"></i>
-        <nav id="main-nav">
-            <a onclick="navigateTo('home-view')">Home</a>
-            <a onclick="navigateTo('about-view')">About Us</a>
-            <a onclick="navigateTo('products-view')">Our Cables</a>
-            <a onclick="navigateTo('quality-view')">Quality & Testing</a>
-            <a onclick="navigateTo('quote-view')" class="btn-nav">Get a Quote</a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#products">Our Cables</a>
+            <a href="#applications">Applications</a>
+            <a href="#quality">Quality & Testing</a>
+            <a href="#contact" class="btn-nav">Get a Quote</a>
         </nav>
     </header>
 
-    <!-- --- PAGE CONTAINER VIEWPORT MATRIX --- -->
-    <main id="app-viewport">
-
-        <!-- [Flowchart Node: Home View Layer] -->
-        <div id="home-view" class="app-page">
-            <section class="hero">
-                <div class="hero-content">
-                    <span class="badge">MADE IN INDIA</span>
-                    <h1>Precision-Engineered <br><span class="text-red">Mechanical Control Cables</span></h1>
-                    <p>Premium manufacturing solutions for automotive, industrial, and agricultural sectors worldwide.</p>
-                    <div class="hero-buttons">
-                        <a onclick="navigateTo('products-view')" class="btn-primary">Explore Products</a>
-                        <a onclick="navigateTo('quote-view')" class="btn-secondary">Contact Experts</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- [Flowchart Node: Whole Summary & Display of Featurings Subsections] -->
-            <section class="highlights-bar">
-                <div class="stat-card"><i class="fa-solid fa-award"></i> <h3>ISO 9001:2015</h3><p>Quality Standard</p></div>
-                <div class="stat-card"><i class="fa-solid fa-gears"></i> <h3>100% Tested</h3><p>Load & Life Cycle</p></div>
-                <div class="stat-card"><i class="fa-solid fa-industry"></i> <h3>Customized</h3><p>Precision Engineering</p></div>
-            </section>
-
-            <section class="section-padding var-light" style="background: var(--light-grey);">
-                <div class="grid-2">
-                    <div>
-                        <h2>Industrial <span class="text-red">Core Capabilities</span></h2>
-                        <p style="margin-top:15px; color: var(--text-muted); line-height: 1.6;">Rajvansh Exim Corp. designs high-performance cable topologies built to survive intense industrial, heavy automotive, and high-frequency actuation deployment landscapes seamlessly across global supply vectors.</p>
-                        <a onclick="navigateTo('about-view')" class="btn-primary" style="margin-top: 20px;">Read Complete Profile</a>
-                    </div>
-                    <div>
-                        <div class="catalog-card" style="border-left: 4px solid var(--primary-red);">
-                            <h3>100% Traceable Assemblies</h3>
-                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top:5px;">Every batch code provides explicit material tracking metrics for regulatory field transparency safety guarantees.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <!-- 2. HOME SECTION (Flowchart Node: Whole Summary & Featured Displays Layout) -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="badge">MADE IN INDIA</span>
+            <h1>Precision-Engineered <br><span class="text-red">Mechanical Control Cables</span></h1>
+            <p>Premium high-durability manufacturing solutions for automotive, industrial, and agricultural sectors worldwide.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn-primary">Explore Products</a>
+                <a href="#contact" class="btn-secondary">Contact Experts</a>
+            </div>
         </div>
+    </section>
 
-        <!-- [Flowchart Node: Our Products View Layer] -->
-        <div id="products-view" class="app-page hidden">
-            <section class="section-padding" style="background: var(--light-grey);">
-                <h2 style="text-align: center;">Mechanical <span class="text-red">Control Cables Catalog</span></h2>
-                <p style="text-align:center; color: var(--text-muted); margin-top: 10px;">Comprehensive industrial systems and application matrices</p>
+    <!-- Features Dashboard Matrix Component -->
+    <section class="highlights-bar">
+        <div class="stat-card"><i class="fa-solid fa-award"></i> <h3>ISO 9001:2015</h3><p>Global Quality Standard</p></div>
+        <div class="stat-card"><i class="fa-solid fa-gears"></i> <h3>100% Tested</h3><p>Load & Life Cycle Verification</p></div>
+        <div class="stat-card"><i class="fa-solid fa-industry"></i> <h3>Customized</h3><p>High-Precision Custom Engineering</p></div>
+    </section>
+
+    <!-- 3. ABOUT US SECTION (Flowchart Node: Dedicated Core Profile Viewport) -->
+    <section id="about" style="background: #ffffff;">
+        <div class="grid-2">
+            <div>
+                <h2>About <span class="text-red">Rajvansh</span></h2>
+                <p style="margin: 15px 0; font-style: italic; color: #555;">"Rajvansh, the name that symbolifies scion of Raj."</p>
+                <p style="line-height: 1.8; color: #555; margin-bottom: 15px;">We are a certified manufacturer of high-performance Control Cables dedicated to quality, innovation, and customer satisfaction. With a strong foundation built over years of industrial experience, we specialize in manufacturing a wide range of control cables tailored for applications in power, automation, machinery, and infrastructure.</p>
+                <p style="line-height: 1.8; color: #555;">Our advanced manufacturing facilities, combined with strict quality control processes, ensure that every product meets national and international standards. Choose Rajvansh where quality, reliability, and innovation connect.</p>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:center; background:var(--light-grey); border-radius:8px; min-height:250px;">
+                 <i class="fa-solid fa-building-shield" style="font-size:6rem; color:#ccc;"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. OUR PRODUCTS SECTION (Flowchart Node: Mechanical Control Cables Grid) -->
+    <section id="products" style="background: var(--light-grey);">
+        <h2 style="text-align: center; margin-bottom: 40px;">Mechanical <span class="text-red">Control Cables Catalog</span></h2>
+        <div class="catalog-container">
+            <div style="background: white; padding: 25px; border-left: 4px solid var(--primary-red); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 0 6px 6px 0;">
+                <h3>1. Primary Motion Systems</h3>
+                <ul style="margin-top: 15px; padding-left: 20px; line-height: 2.2; color:#555;">
+                    <li>Push-Pull Control Cables</li>
+                    <li>Pull-Only Cables</li>
+                    <li>Tension Control Cables</li>
+                    <li>Bowden Cables</li>
+                    <li>Remote Valve Control Cables</li>
+                </ul>
+            </div>
+            <div style="background: white; padding: 25px; border-left: 4px solid var(--dark-bg); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 0 6px 6px 0;">
+                <h3>2. Utility & Operating Cables</h3>
+                <ul style="margin-top: 15px; padding-left: 20px; line-height: 2.2; color:#555;">
+                    <li>Seat Lock & Bonnet Opening Cables</li>
+                    <li>Flexible & Window Regulator Cables</li>
+                    <li>Door Lock & Gear Shift / Select Cables</li>
+                    <li>Brake, Clutch & Accelerator Cables</li>
+                    <li>Parking Brake & Speedometer Cables</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross-Industry Applications Component Matrix -->
+    <section id="applications" style="background: #ffffff;">
+        <h2 style="text-align: center; margin-bottom: 40px;">Industrial <span class="text-red">Application Matrix</span></h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+            <div style="text-align: center; padding: 30px; background: var(--light-grey); border: 1px solid #ddd; border-radius: 6px;">
+                <i class="fa-solid fa-car" style="font-size: 2.5rem; color: var(--primary-red);"></i>
+                <h4 style="margin-top:15px;">Automotive (incl. EV)</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Throttle, Gear Shift, Handbrake & Bonnet open systems</p>
+            </div>
+            <div style="text-align: center; padding: 30px; background: var(--light-grey); border: 1px solid #ddd; border-radius: 6px;">
+                <i class="fa-solid fa-motorcycle" style="font-size: 2.5rem; color: var(--primary-red);"></i>
+                <h4 style="margin-top:15px;">Two-Wheelers & E-Rickshaws</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Clutch, CBS Brake, Speedometer & Choke applications</p>
+            </div>
+            <div style="text-align: center; padding: 30px; background: var(--light-grey); border: 1px solid #ddd; border-radius: 6px;">
+                <i class="fa-solid fa-tractor" style="font-size: 2.5rem; color: var(--primary-red);"></i>
+                <h4 style="margin-top:15px;">Agricultural Machinery</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Flexible shafts, Pull-to-Stop & heavy throttle components</p>
+            </div>
+            <div style="text-align: center; padding: 30px; background: var(--light-grey); border: 1px solid #ddd; border-radius: 6px;">
+                <i class="fa-solid fa-helmet-safety" style="font-size: 2.5rem; color: var(--primary-red);"></i>
+                <h4 style="margin-top:15px;">Heavy Equipment</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Transmission controls & engine levers for construction machinery</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. QUALITY AND TESTING SECTION (Flowchart Node: Integrity Verifications) -->
+    <section id="quality" style="background: var(--light-grey);">
+        <h2 style="text-align: center; margin-bottom: 20px;">Quality & <span class="text-red">Rigorous Testing</span></h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 40px auto; color: #666;">Our cables undergo strict, end-to-end performance checks to secure complete visual, physical, and environmental reliability matching global parameters.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+            <div style="background: white; padding: 20px; border-radius: 4px; width: 280px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center;"><i class="fa-solid fa-check-double text-red"></i> <strong style="margin-left: 8px;">100% Traceability</strong></div>
+            <div style="background: white; padding: 20px; border-radius: 4px; width: 280px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center;"><i class="fa-solid fa-weight-hanging text-red"></i> <strong style="margin-left: 8px;">Proof Load Testing</strong></div>
+            <div style="background: white; padding: 20px; border-radius: 4px; width: 280px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center;"><i class="fa-solid fa-arrows-spin text-red"></i> <strong style="margin-left: 8px;">Life Cycle & Durability</strong></div>
+        </div>
+    </section>
+
+    <!-- 6. CONTACT US SECTION (Flowchart Node: Direct Input Form Box with Sheet Redirection) -->
+    <section id="contact" class="contact-section">
+        <div class="grid-2">
+            <div>
+                <!-- PNG Logo Option B: Logo version where corporate name is NOT written directly into image -->
+                <div class="footer-logo-wrapper">
+                    <img src="https://drive.google.com/uc?export=download&id=1CT-DJD5qg_M1GwCBvXQEbIv9u2hDi3Mo" alt="Rajvansh Graphic Emblem Only" class="footer-logo">
+                </div>
+                <h2>Connect with <span class="text-red">Rajvansh Exim Corp.</span></h2>
+                <p style="margin: 20px 0; color: var(--text-muted); line-height:1.6;">Submit your technical layout rules for rapid prototypes or heavy procurement estimates.</p>
                 
-                <div class="catalog-container">
-                    <div class="catalog-card" style="border-left: 4px solid var(--primary-red);">
-                        <h3>1. Primary Motion Systems</h3>
-                        <ul style="margin-top: 10px; padding-left: 20px; line-height: 2;">
-                            <li>Push-Pull Control Cables</li>
-                            <li>Pull-Only Cables</li>
-                            <li>Tension Control Cables</li>
-                            <li>Bowden Cables</li>
-                            <li>Remote Valve Control Cables</li>
-                        </ul>
-                    </div>
-                    <div class="catalog-card" style="border-left: 4px solid var(--dark-bg);">
-                        <h3>2. Utility & Operating Cables</h3>
-                        <ul style="margin-top: 10px; padding-left: 20px; line-height: 2;">
-                            <li>Seat Lock & Bonnet Opening Cables</li>
-                            <li>Flexible & Window Regulator Cables</li>
-                            <li>Door Lock & Gear Shift / Select Cables</li>
-                            <li>Brake, Clutch & Accelerator Cables</li>
-                            <li>Parking Brake & Speedometer Cables</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h3 style="text-align: center; margin-top: 60px;">Cross-Industry Application Matrix</h3>
-                <div class="matrix-container">
-                    <div class="matrix-card">
-                        <i class="fa-solid fa-car"></i>
-                        <h4 style="margin-top:15px;">Automotive (incl. EV)</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Throttle, Gear Shift, Handbrake & Bonnet open systems</p>
-                    </div>
-                    <div class="matrix-card">
-                        <i class="fa-solid fa-motorcycle"></i>
-                        <h4 style="margin-top:15px;">Two-Wheelers & E-Rickshaws</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Clutch, CBS Brake, Speedometer & Choke applications</p>
-                    </div>
-                    <div class="matrix-card">
-                        <i class="fa-solid fa-tractor"></i>
-                        <h4 style="margin-top:15px;">Agricultural Machinery</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Flexible shafts, Pull-to-Stop & heavy throttle components</p>
-                    </div>
-                    <div class="matrix-card">
-                        <i class="fa-solid fa-helmet-safety"></i>
-                        <h4 style="margin-top:15px;">Heavy Equipment</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Transmission controls & engine levers for construction machinery</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- [Flowchart Node: Quality And Testing View Layer] -->
-        <div id="quality-view" class="app-page hidden">
-            <section class="section-padding">
-                <h2 style="text-align: center; margin-bottom: 20px;">Quality & <span class="text-red">Rigorous Testing Framework</span></h2>
-                <p style="text-align: center; max-width: 700px; margin: 0 auto; color: var(--text-muted);">Our cables undergo strict, end-to-end performance checks to secure complete visual, physical, and environmental reliability matching global parameters.</p>
+                <p style="margin-bottom: 14px;"><i class="fa-solid fa-location-dot text-red" style="margin-right: 12px;"></i> Khata No. 205-265, Basai Enclave 1, Basai Road, Near Alpha Hospital, Gurugram, Haryana-122001</p>
+                <p style="margin-bottom: 14px;"><i class="fa-solid fa-phone text-red" style="margin-right: 12px;"></i> +91 9911291167, +91 87005 39823</p>
                 
-                <div class="quality-flex">
-                    <div class="quality-card"><i class="fa-solid fa-check-double text-red"></i> <strong>100% Traceability</strong></div>
-                    <div class="quality-card"><i class="fa-solid fa-weight-hanging text-red"></i> <strong>Proof Load Testing</strong></div>
-                    <div class="quality-card"><i class="fa-solid fa-arrows-spin text-red"></i> <strong>Life Cycle & Durability</strong></div>
-                </div>
+                <!-- Explicit Mailto Hyperlink Redirects -->
+                <p style="margin-bottom: 14px;">
+                    <i class="fa-solid fa-envelope text-red" style="margin-right: 12px;"></i> 
+                    <a href="mailto:info@rajvanshexim.co.in" style="color:white; text-decoration:none;">info@rajvanshexim.co.in</a>
+                </p>
+                <p style="margin-bottom: 14px;">
+                    <i class="fa-solid fa-envelope-open text-red" style="margin-right: 12px;"></i> 
+                    <a href="mailto:rajvansheximcorp@gmail.com" style="color:white; text-decoration:none;">rajvansheximcorp@gmail.com</a>
+                </p>
 
-                <div style="margin-top: 50px; text-align: center; background: var(--light-grey); padding: 40px; border-radius: 6px;">
-                    <h3>Need Verified Infrastructure Validation Reports?</h3>
-                    <p style="color:var(--text-muted); margin: 10px 0 20px 0;">Connect with our testing engineers to receive complete validation paperwork.</p>
-                    <a onclick="navigateTo('quote-view')" class="btn-primary">Request Custom Testing Matrix</a>
-                </div>
-            </section>
-        </div>
-
-        <!-- [Flowchart Node: About Us View Layer] -->
-        <div id="about-view" class="app-page hidden">
-            <section class="section-padding">
-                <div class="grid-2">
-                    <div>
-                        <h2>About <span class="text-red">Rajvansh</span></h2>
-                        <p class="tagline" style="margin: 10px 0; color: var(--primary-red);"><em>Rajvansh, the name that symbolifies scion of Raj.</em></p>
-                        <p style="line-height: 1.7; color: var(--text-muted);">We are a certified manufacturer of high-performance Control Cables dedicated to quality, innovation, and customer satisfaction. With a strong foundation built over years of industry experience, we specialize in manufacturing a wide range of control cables tailored for applications in power, automation, machinery, and infrastructure.</p>
-                        <p style="line-height: 1.7; color: var(--text-muted); margin-top: 15px;">Our advanced manufacturing facilities, combined with strict quality control processes, ensure that every product meets national and international standards. Choose Rajvansh where quality, reliability, and innovation connect.</p>
-                    </div>
-                    <div style="background: var(--light-grey); padding: 40px; border-radius: 6px; border-top: 5px solid var(--primary-red);">
-                        <h3>Our Core Mission Statement</h3>
-                        <p style="margin-top: 15px; font-style: italic; color: #555;">"To continuously deliver top-tier custom layout configurations to the mechanical automation ecosystems while holding strict compliance vectors."</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- [Flowchart Node: Get Quote / Contact Us View Layer Container] -->
-        <div id="quote-view" class="app-page hidden">
-            <section class="section-padding contact-wrapper">
-                <div class="contact-flex">
-                    <div class="contact-info">
-                        <h2>Connect with <span class="text-red">Rajvansh Exim Corp.</span></h2>
-                        <p style="margin: 20px 0; color: #aaa;">Submit your technical layout rules for rapid prototypes or heavy procurement estimates.</p>
-                        
-                        <p style="margin-bottom: 12px;"><i class="fa-solid fa-location-dot text-red" style="margin-right: 10px;"></i> Khata No. 205-265, Basai Enclave 1, Basai Road, Near Alpha Hospital, Gurugram, Haryana-122001</p>
-                        <p style="margin-bottom: 12px;"><i class="fa-solid fa-phone text-red" style="margin-right: 10px;"></i> +91 9911291167, +91 87005 39823</p>
-                        <p style="margin-bottom: 12px;"><i class="fa-solid fa-envelope text-red" style="margin-right: 10px;"></i> info@rajvanshexim.co.in</p>
-                        <p><i class="fa-solid fa-envelope-open text-red" style="margin-right: 10px;"></i> rajvansheximcorp@gmail.com</p>
-
-                        <!-- Added Brochure Download Link Per Specifications -->
-                        <div>
-                            <a href="https://docs.google.com/uc?export=download&id=19AxpUz4DwnKPo6sktNiaedqaYTcwYnxC" target="_blank" class="btn-brochure">
-                                <i class="fa-solid fa-file-pdf"></i> Download Official Brochure
-                            </a>
-                        </div>
-                    </div>
+                <!-- Interactive Corporate Catalogue / Brochure Download Action Trigger -->
+                <a href="https://drive.google.com/uc?export=download&id=19AxpUz4DwnKPo6sktNiaedqaYTcwYnxC" class="btn-brochure" download="Rajvansh_Exim_Corp_Brochure.pdf">
+                    <i class="fa-solid fa-file-arrow-down"></i> Download Corporate Brochure
+                </a>
+            </div>
+            
+            <div class="form-box">
+                <!-- Form targeting secure standalone Google Apps Script API endpoint -->
+                <form id="rajvansh-sheet-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Business Email" required>
+                    <textarea name="requirements" placeholder="Specify Cable Dimensions / Requirements" rows="4" required></textarea>
                     
-                    <div class="contact-form-container">
-                        <!-- Direct Google Apps Script Endpoint Form Connection Setup -->
-                        <form id="google-sheet-form">
-                            <label style="font-size:0.85rem; color:#aaa;">Full Name *</label>
-                            <input type="text" name="name" placeholder="Your Name" required>
-                            
-                            <label style="font-size:0.85rem; color:#aaa;">Business Email *</label>
-                            <input type="email" name="email" placeholder="Business Email" required>
-                            
-                            <label style="font-size:0.85rem; color:#aaa;">Dimensions & Project Specification Metrics</label>
-                            <textarea name="requirements" placeholder="Specify Cable Dimensions / Requirements" rows="4"></textarea>
-                            
-                            <button type="submit" id="submit-btn" class="btn-submit">Submit Request</button>
-                            <p id="form-error-status" style="margin-top: 15px; text-align: center; display: none; color: #ff3333; font-weight: bold;"></p>
-                        </form>
-                    </div>
-                </div>
-            </section>
+                    <button type="submit" id="form-submit-btn" class="btn-submit">Submit Request</button>
+                </form>
+            </div>
         </div>
+    </section>
 
-        <!-- [Flowchart Node: THANK YOU WE WILL CONTACT BACK VIEW PAGE] -->
-        <div id="thank-you-view" class="app-page hidden">
-            <section class="thank-you-view">
-                <i class="fa-solid fa-circle-check"></i>
-                <h2>Thank You! We Will Contact You Back</h2>
-                <p>Your engineering requirements have been logged into our centralized production management dashboard.</p>
-                <div style="margin-bottom: 20px;">
-                    <button onclick="navigateTo('home-view')" class="btn-primary">Back to Home Immediately</button>
-                </div>
-                <small style="color: #888;">System will automatically redirect back to Home in <span id="countdown-timer" style="font-weight: bold; color: var(--primary-red);">10</span> seconds.</small>
-            </section>
+    <!-- 7. THANK YOU REDIRECTION SCREEN OVERLAY (Flowchart Terminal Step: 10s Loop Back) -->
+    <div id="thank-you-overlay">
+        <div class="thank-you-box">
+            <i class="fa-solid fa-circle-check"></i>
+            <h2>Thank You!</h2>
+            <p>We have successfully logged your technical parameters. Our industrial engineering team will contact you back shortly.</p>
+            <a href="#home" onclick="closeThankYou()" class="btn-primary" style="display:inline-block; text-decoration:none;">Back to Home</a>
+            <div class="countdown-text">Automatically returning to home screen in <span id="timer-sec">10</span> seconds...</div>
         </div>
+    </div>
 
-    </main>
-
-    <!-- --- CORE INTERACTIVE FLOW ENGINE --- -->
+    <!-- Application Script Logic Controller -->
     <script>
-        // Google Sheet Web App Deployment Target URL Endpoint Connected Directly
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxuxavMElLsM01xqyNYH4_7v6D7tRXqR9DF8SoKbsYBcwibfHD2TmfL0Dgju1Ic3Tf3/exec';
-        
-        const videoPlayer = document.getElementById('loading-video');
-        const introLoader = document.getElementById('intro-loader');
-        const mainNav = document.getElementById('main-nav');
-        
-        let redirectTimeout;
-        let countdownInterval;
+        // A. Handle Introductory Autoplay Media Loading Transition
+        const video = document.getElementById('autoplay-video');
+        const loader = document.getElementById('intro-loader');
 
-        // Auto transition logic immediately when introduction video ends playing
-        videoPlayer.addEventListener('ended', function() {
-            introLoader.style.transition = 'opacity 0.5s ease';
-            introLoader.style.opacity = '0';
+        // Failsafe fallback: clear loader after 6s max execution if file streams stall
+        const fallbackTimeout = setTimeout(clearLoader, 6000);
+
+        function clearLoader() {
+            clearTimeout(fallbackTimeout);
+            loader.style.opacity = '0';
             setTimeout(() => {
-                introLoader.classList.add('hidden');
-                navigateTo('home-view'); // Redirects directly to site
+                loader.style.display = 'none';
             }, 500);
+        }
+
+        // Action transition fires directly when media playback reaches completion boundary
+        video.addEventListener('ended', clearLoader);
+        
+        // Handle potential browser blockages with interactive bypass
+        video.play().catch(() => {
+            // Direct transparent click-through if initial hardware hardware lock trips
+            loader.addEventListener('click', clearLoader);
         });
 
-        // Backup fallback if video loading is blocked or delays over 6 seconds
-        setTimeout(() => {
-            if (!introLoader.classList.contains('hidden')) {
-                introLoader.style.opacity = '0';
-                setTimeout(() => {
-                    introLoader.classList.add('hidden');
-                    navigateTo('home-view');
-                }, 500);
-            }
-        }, 6000);
+        // B. Dynamic CSS Component Reveal Transitions (Intersection Observer API)
+        const activeSections = document.querySelectorAll('section');
+        const scrollOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
 
-        // Modular Single Page Application Dynamic View Router
-        function navigateTo(pageId) {
-            // Clear any active timers to prevent cross-page navigation issues
-            clearTimeout(redirectTimeout);
-            clearInterval(countdownInterval);
+        const sectionObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, scrollOptions);
 
-            // Hide all active application layout tracks
-            const pages = document.querySelectorAll('.app-page');
-            pages.forEach(page => page.classList.add('hidden'));
+        activeSections.forEach(section => {
+            sectionObserver.observe(section);
+        });
 
-            // Show selected target node view tracking flowchart mapping
-            const activePage = document.getElementById(pageId);
-            if (activePage) {
-                activePage.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+        // C. Form Submission Process Targeting Provided Google Sheets Web Deployment URL
+        const sheetForm = document.getElementById('rajvansh-sheet-form');
+        const submitButton = document.getElementById('form-submit-btn');
+        const thankYouOverlay = document.getElementById('thank-you-overlay');
+        const timerCountSpan = document.getElementById('timer-sec');
+        let countdownInterval;
 
-            // Collapse mobile menu during screen transfers
-            mainNav.classList.remove('active');
+        // Validated Target Production Script Node Web App Route URL
+        const targetScriptURL = 'https://script.google.com/macros/s/AKfycbxuxavMElLsM01xqyNYH4_7v6D7tRXqR9DF8SoKbsYBcwibfHD2TmfL0Dgju1Ic3Tf3/exec';
 
-            // Trigger custom behavior if redirected to the Thank You Page Node
-            if (pageId === 'thank-you-view') {
-                triggerThankYouLifecycle();
-            }
-        }
+        sheetForm.addEventListener('submit', event => {
+            event.preventDefault();
+            
+            submitButton.disabled = true;
+            submitButton.innerText = "Transmitting Layout Data...";
 
-        // Handle Responsive Mobile View Menu Toggles
-        function toggleMobileMenu() {
-            mainNav.classList.toggle('active');
-        }
-
-        // Asynchronous form injection pipeline connecting Google Sheet API directly
-        const form = document.getElementById('google-sheet-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const errorStatus = document.getElementById('form-error-status');
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Processing Data...";
-            errorStatus.style.display = "none";
-
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            fetch(targetScriptURL, { method: 'POST', body: new FormData(sheetForm) })
                 .then(response => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerText = "Submit Request";
-                    form.reset();
-                    // Map execution path to Flowchart node: Thank You Screen Matrix
-                    navigateTo('thank-you-view');
+                    // Initialize Success Path Terminal UI Elements
+                    sheetForm.reset();
+                    submitButton.disabled = false;
+                    submitButton.innerText = "Submit Request";
+                    
+                    // Display Automated Redirection Window Modal Screen Layer
+                    thankYouOverlay.classList.add('active');
+                    runRedirectionLoop();
                 })
-                .catch(error => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerText = "Submit Request";
-                    errorStatus.style.display = "block";
-                    errorStatus.innerText = "Submission error. Check web application connection credentials.";
-                    console.error('Submission processing failure:', error);
+                .catch(err => {
+                    alert("Submission configuration trace error. Please try again or email directly.");
+                    submitButton.disabled = false;
+                    submitButton.innerText = "Submit Request";
+                    console.error('Transmission Error Log:', err);
                 });
         });
 
-        // Lifecycle rules execution window for the 10-second auto-refresh countdown
-        function triggerThankYouLifecycle() {
-            let timeLeft = 10;
-            const timerDisplay = document.getElementById('countdown-timer');
-            timerDisplay.innerText = timeLeft;
-
+        // D. 10-Second Automatic Refreshed Loop Engine (Terminal Flowchart State Reset)
+        function runRedirectionLoop() {
+            let remainingTime = 10;
+            timerCountSpan.innerText = remainingTime;
+            
             countdownInterval = setInterval(() => {
-                timeLeft--;
-                timerDisplay.innerText = timeLeft;
-                if (timeLeft <= 0) {
+                remainingTime--;
+                timerCountSpan.innerText = remainingTime;
+                
+                if (remainingTime <= 0) {
                     clearInterval(countdownInterval);
+                    closeThankYou();
                 }
             }, 1000);
+        }
 
-            // Flowchart Rule: Refresh and transfer view state automatically back to home after 10 seconds
-            redirectTimeout = setTimeout(() => {
-                navigateTo('home-view');
-            }, 10000);
+        function closeThankYou() {
+            clearInterval(countdownInterval);
+            thankYouOverlay.classList.remove('active');
+            // Complete reset back home via programmatic routing call
+            window.location.hash = "home";
         }
     </script>
 </body>
