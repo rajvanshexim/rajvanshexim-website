@@ -1,14 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-    <meta charset="UTF-8"> 
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rajvansh Exim Corp. | ISO 9001:2015 Certified Control Cables</title>
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome for clean industrial icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Improvised Video Loader Styles */
+        #intro-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+        #intro-loader iframe {
+            width: 80%;
+            max-width: 800px;
+            height: 450px;
+            border: none;
+        }
+        .skip-btn {
+            margin-top: 20px;
+            background: #d62828;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        /* Custom UI States */
+        .thank-you-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            color: #fff;
+            text-align: center;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .btn-brochure {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            border: 2px solid #d62828;
+            padding: 12px 25px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .btn-brochure:hover {
+            background: #d62828;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Flowchart Intro: Video As Loading -->
+    <div id="intro-loader">
+        <!-- Direct embedded video stream presentation -->
+        <iframe src="https://drive.google.com/file/d/1uVHDaAwGdmIugNmYYC1EWS8_uxi4Cmr1/preview" allow="autoplay"></iframe>
+        <button class="skip-btn" onclick="closeLoader()">Enter Official Site</button>
+    </div>
+
+    <!-- Flowchart Stage: Thank You / Auto-Redirect Dashboard -->
+    <div id="thank-you-screen" class="thank-you-overlay">
+        <i class="fa-solid fa-circle-check" style="font-size: 4rem; color: #4BB543; margin-bottom: 20px;"></i>
+        <h2>THANK YOU! WE WILL CONTACT YOU BACK</h2>
+        <p style="margin: 15px 0; color: #aaa;">Your precision custom requirements have been safely logged to our central matrix.</p>
+        <p>Redirecting back to Home page automatically in <span id="countdown-timer" style="font-weight: bold; color: #d62828;">10</span> seconds...</p>
+        <button class="skip-btn" style="background: #222; border: 1px solid #444;" onclick="instantHomeRedirect()">Back to Home Instantly</button>
+    </div>
 
     <!-- Top Utility Bar -->
     <div class="top-bar">
@@ -19,7 +104,8 @@
     <!-- Navigation Header -->
     <header>
         <div class="logo-area">
-            <img src="assests/rajvansh logo.png" alt="Rajvansh" class="site-logo">
+            <!-- Brand Mark with Text Asset -->
+            <img src="https://drive.google.com/file/d/1uVHDaAwGdmIugNmYYC1EWS8_uxi4Cmr1/view?usp=sharing" alt="Rajvansh Logo Text" class="site-logo" onerror="this.src='assets/rajvansh logo.jpg'">
             <span class="brand-name">RAJVANSH <span class="text-red">EXIM CORP.</span></span>
         </div>
         <nav>
@@ -45,7 +131,7 @@
         </div>
     </section>
 
-    <!-- Interactive Counter/Highlights Dashboard -->
+    <!-- Highlights Dashboard -->
     <section class="highlights-bar">
         <div class="stat-card"><i class="fa-solid fa-award"></i> <h3>ISO 9001:2015</h3><p>Quality Standard</p></div>
         <div class="stat-card"><i class="fa-solid fa-gears"></i> <h3>100% Tested</h3><p>Load & Life Cycle</p></div>
@@ -127,7 +213,7 @@
         </div>
     </section>
 
-    <!-- Corporate Contact & Traceability Card -->
+    <!-- Corporate Contact & Integrated Google Sheet Script Engine -->
     <section id="contact" style="padding: 60px 10%; background: #111; color: white;">
         <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
             <div style="flex: 1; min-width: 300px;">
@@ -136,19 +222,95 @@
                 <p style="margin-bottom: 12px;"><i class="fa-solid fa-location-dot text-red" style="margin-right: 10px;"></i> Khata No. 205-265, Basai Enclave 1, Basai Road, Near Alpha Hospital, Gurugram, Haryana-122001</p>
                 <p style="margin-bottom: 12px;"><i class="fa-solid fa-phone text-red" style="margin-right: 10px;"></i> +91 9911291167, +91 87005 39823</p>
                 <p style="margin-bottom: 12px;"><i class="fa-solid fa-envelope text-red" style="margin-right: 10px;"></i> info@rajvanshexim.co.in</p>
-                <p><i class="fa-solid fa-envelope-open style text-red" style="margin-right: 10px;"></i> rajvansheximcorp@gmail.com</p>
+                <p style="margin-bottom: 25px;"><i class="fa-solid fa-envelope-open text-red" style="margin-right: 10px;"></i> rajvansheximcorp@gmail.com</p>
+                
+                <!-- Added Brochure Download Link Element -->
+                <h4>Product Documentation</h4>
+                <a href="https://drive.google.com/file/d/19AxpUz4DwnKPo6sktNiaedqaYTcwYnxC/view?usp=sharing" target="_blank" class="btn-brochure">
+                    <i class="fa-solid fa-file-pdf" style="margin-right: 8px;"></i> Download Industrial Brochure
+                </a>
             </div>
+            
             <div style="flex: 1; min-width: 300px; background: #222; padding: 30px; border-radius: 6px;">
-                <form action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-KEY-HERE">
-                    <input type="text" placeholder="Your Name" required style="width:100%; padding:12px; margin-bottom:15px; border:none; background:#333; color:white; border-radius: 4px;">
-                    <input type="email" placeholder="Business Email" required style="width:100%; padding:12px; margin-bottom:15px; border:none; background:#333; color:white; border-radius: 4px;">
-                    <textarea placeholder="Specify Cable Dimensions / Requirements" rows="4" style="width:100%; padding:12px; margin-bottom:15px; border:none; background:#333; color:white; border-radius: 4px;"></textarea>
-                    <button type="submit" style="background:var(--primary-red); color:white; border:none; padding:12px 25px; width:100%; font-weight:bold; cursor:pointer; border-radius: 4px; transition: 0.3s;">Submit Request</button>
+                <!-- Updated Production Form linked to Google Sheet Pipeline -->
+                <form id="rajvansh-sheet-form">
+                    <input type="text" name="name" placeholder="Your Name" required style="width:100%; padding:12px; margin-bottom:15px; border:none; background:#333; color:white; border-radius: 4px;">
+                    <input type="email" name="email" placeholder="Business Email" required style="width:100%; padding:12px; margin-bottom:15px; border:none; background:#333; color:white; border-radius: 4px;">
+                    <textarea name="requirements" placeholder="Specify Cable Dimensions / Requirements" rows="4" style="width:100%; padding:12px; margin-bottom:15px; border:none; background:#333; color:white; border-radius: 4px;"></textarea>
+                    
+                    <button type="submit" id="submit-btn" style="background:var(--primary-red, #d62828); color:white; border:none; padding:12px 25px; width:100%; font-weight:bold; cursor:pointer; border-radius: 4px; transition: 0.3s;">Submit Request</button>
+                    <p id="form-err-msg" style="color: #ff3333; margin-top: 10px; display: none; text-align: center;"></p>
                 </form>
             </div>
         </div>
+        
+        <!-- Alternate Minimal/Unwritten Mark Asset representation at base footer -->
+        <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #222;">
+            <img src="https://drive.google.com/file/d/1CT-DJD5qg_M1GwCBvXQEbIv9u2hDi3Mo/view?usp=drive_link" alt="Rajvansh Icon Mark Only" style="height: 40px; opacity: 0.6;">
+        </div>
     </section>
 
+    <!-- App Engine Controls Scripts -->
+    <script>
+        // Intro Preloader control logic
+        function closeLoader() {
+            const loader = document.getElementById('intro-loader');
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }
+
+        // Form pipeline submission logic
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxuxavMElLsM01xqyNYH4_7v6D7tRXqR9DF8SoKbsYBcwibfHD2TmfL0Dgju1Ic3Tf3/exec';
+        const form = document.getElementById('rajvansh-sheet-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const errMsg = document.getElementById('form-err-msg');
+        const thankYouScreen = document.getElementById('thank-you-screen');
+        const countdownTimer = document.getElementById('countdown-timer');
+        let intervalId;
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Processing Details...";
+            errMsg.style.display = "none";
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "Submit Request";
+                    form.reset();
+                    triggerThankYouFlow();
+                })
+                .catch(error => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "Submit Request";
+                    errMsg.innerText = "Network pipeline error. Please try again.";
+                    errMsg.style.display = "block";
+                    console.error('Submission Error!', error.message);
+                });
+        });
+
+        function triggerThankYouFlow() {
+            thankYouScreen.style.display = 'flex';
+            let timeLeft = 10;
+            countdownTimer.innerText = timeLeft;
+            
+            intervalId = setInterval(() => {
+                timeLeft--;
+                countdownTimer.innerText = timeLeft;
+                if(timeLeft <= 0) {
+                    instantHomeRedirect();
+                }
+            }, 1000);
+        }
+
+        function instantHomeRedirect() {
+            clearInterval(intervalId);
+            thankYouScreen.style.display = 'none';
+            window.location.hash = '#home';
+        }
+    </script>
 </body>
 </html>
