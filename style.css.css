@@ -1,0 +1,192 @@
+/* Design Variables Matching 'rajvansh logo.jpg' Palette */
+:root {
+    --primary-red: #E62226;
+    --dark-bg: #111111;
+    --clean-white: #FFFFFF;
+    --light-grey: #F8F9FA;
+    --text-dark: #222222;
+    --text-muted: #666666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--text-dark);
+    background-color: var(--clean-white);
+    line-height: 1.6;
+}
+
+/* Utilities */
+.text-red { color: var(--primary-red); }
+.badge {
+    background: var(--primary-red);
+    color: white;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+/* Header layout configuration */
+.top-bar {
+    background: var(--dark-bg);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10%;
+    font-size: 0.85rem;
+}
+
+header {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.site-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-name {
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    margin-left: 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover { color: var(--primary-red); }
+
+.btn-nav {
+    background: var(--dark-bg);
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+.btn-nav:hover {
+    background: var(--primary-red);
+}
+
+/* Hero Styling Configuration */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('assets/hero-bg.jpg') no-repeat center center/cover;
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.hero-buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary {
+    background: var(--primary-red);
+    color: white;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+.btn-primary:hover { background: #b71418; }
+
+.btn-secondary {
+    border: 2px solid white;
+    color: white;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+.btn-secondary:hover { background: white; color: black; }
+
+/* Highlights Bar Dashboard */
+.highlights-bar {
+    background: var(--clean-white);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 30px 10%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    position: relative;
+    margin-top: -30px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 6px;
+    z-index: 10;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 10px;
+}
+.stat-card i {
+    font-size: 2rem;
+    color: var(--primary-red);
+    margin-bottom: 8px;
+}
+
+/* About Section CSS */
+.about-section {
+    padding: 80px 10% 60px 10%;
+}
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+.about-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+.tagline {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+.about-container p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    color: #444;
+    text-align: justify;
+}
